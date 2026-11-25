@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Una lettera per te</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e8e5de;--glow:#f6f4ef;--paper:#fffefb;--env:#1d2a47;--flap:#243457;--foil:#d9bb7e;--ink:#1c2233;--muted:#656c7e;--gold:#a8873f;--gold-soft:rgba(143,111,47,.45);--wine:#7a1f2b;--head:#7a1f2b;--on-wine:#f6ead8;--shadow:rgba(20,25,40,.25);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0f1c;--glow:#18223b;--paper:#141b2b;--env:#1b2745;--flap:#233258;--ink:#ece8de;--muted:#98a1b6;--gold:#c9a86a;--gold-soft:rgba(201,168,106,.35);--wine:#a3303f;--head:#e8909c;--on-wine:#fbefe0;--shadow:rgba(0,0,0,.5)}}
+:root[data-theme="dark"]{--bg:#0a0f1c;--glow:#18223b;--paper:#141b2b;--env:#1b2745;--flap:#233258;--ink:#ece8de;--muted:#98a1b6;--gold:#c9a86a;--gold-soft:rgba(201,168,106,.35);--wine:#a3303f;--head:#e8909c;--on-wine:#fbefe0;--shadow:rgba(0,0,0,.5)}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100%;display:flex;flex-direction:column;background:radial-gradient(120% 80% at 50% 0,var(--glow),var(--bg) 70%) fixed,var(--bg);color:var(--ink);font:400 1.28rem/1.72 'EB Garamond',Garamond,Georgia,'Times New Roman',serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+main{flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 18px}
+.scr{display:none;width:100%;max-width:520px;flex:1;flex-direction:column;align-items:center;animation:fade .9s both}
+.scr.on{display:flex}
+#s1{justify-content:center;gap:32px;text-align:center}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes beat{50%{transform:translate(-50%,-50%) scale(1.1)}}
+.cap,.hello,.big,.sign,.addr{font-family:'Pinyon Script','Snell Roundhand','Apple Chancery','Segoe Script',cursive;font-weight:400;line-height:1.15}
+.cap{font-size:2.8rem;color:var(--head);margin:0}
+.hint{color:var(--muted);margin:0;font-size:1.05rem;font-style:italic}
+.env{position:relative;width:min(84vw,340px);aspect-ratio:3/2;background:var(--env);border-radius:4px;perspective:900px;box-shadow:0 18px 40px var(--shadow)}
+.env::after{content:"";position:absolute;inset:8px;border:1px solid var(--foil);opacity:.35;border-radius:2px;pointer-events:none}
+.flap{position:absolute;left:0;top:0;width:100%;height:64%;overflow:visible;transform-origin:top;transition:transform .9s ease}
+.flap polygon{fill:var(--flap);stroke:var(--foil);stroke-width:1;vector-effect:non-scaling-stroke}
+.env.open .flap{transform:rotateX(180deg)}
+.addr{position:absolute;left:0;right:0;bottom:8%;margin:0;text-align:center;font-size:1.9rem;color:var(--foil)}
+.seal{position:absolute;left:50%;top:62%;transform:translate(-50%,-50%);width:60px;height:60px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#b9384a,var(--wine) 55%,#45101a);color:#f3d9b0;font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.45),inset 0 0 0 5px rgba(255,255,255,.07);animation:beat 1.8s ease-in-out infinite;transition:opacity .4s;z-index:2}
+.env.open .seal{opacity:0;pointer-events:none}
+.paper{width:100%;background:var(--paper);border-radius:3px;padding:38px 30px 40px;box-shadow:0 14px 36px var(--shadow);outline:1px solid var(--gold-soft);outline-offset:-10px}
+.paper::before{content:"";display:block;width:46%;height:1px;margin:0 auto 26px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.paper>*{animation:rise .8s both;scroll-margin-top:20px}
+.paper p{margin:0 0 1.05em}
+.hello{font-size:2.7rem;color:var(--head);margin:0 0 .3em}
+.finale{text-align:center;padding-top:.6em}
+.big{font-size:3rem;color:var(--head);margin:0 0 .3em}
+.paper .sign{font-size:2.6rem;color:var(--head);margin:.2em 0 0}
+.link{font:inherit;font-size:1rem;font-style:italic;color:var(--muted);background:none;border:0;text-decoration:underline;cursor:pointer;padding:10px}
+.bar{position:sticky;bottom:0;width:100%;display:flex;justify-content:center;margin-top:auto;padding:22px 0 calc(14px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--bg) 55%,transparent);pointer-events:none}
+.btn{pointer-events:auto;font:500 1.15rem 'EB Garamond',Georgia,serif;letter-spacing:.02em;background:var(--wine);color:var(--on-wine);border:1px solid var(--foil);border-radius:999px;padding:12px 34px;box-shadow:0 8px 18px var(--shadow);cursor:pointer}
+.btn:active{transform:scale(.97)}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <section class="scr on" id="s1">
+    <h1 class="cap">Una lettera per te</h1>
+    <div class="env" id="env">
+      <svg class="flap" viewBox="0 0 100 64" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,0 100,0 50,64"/></svg>
+      <p class="addr">Alla mia ostetrica</p>
+      <button class="seal" id="seal" aria-label="Apri la lettera">♥</button>
+    </div>
+    <p class="hint">Tocca il sigillo per aprirla</p>
+  </section>
+  <section class="scr" id="s2">
+    <article class="paper" id="paper"></article>
+    <div class="bar"><button class="btn" id="btn">Continua</button></div>
+  </section>
+</main>
+<canvas id="fx"></canvas>
+<script>
+// Qui sotto c'è il testo della lettera: ogni voce di "paras" appare a un tocco.
+const L={
+  to:"Amore mio,",
+  paras:[
+    "ricordo ancora quando, 3 anni fa, eri scettica e piena di dubbi su questo percorso. Finalmente è arrivato il momento di raccogliere ciò che hai seminato.",
+    "Ricordo le paure, i pianti, i momenti in cui volevi rinunciare e abbandonare tutto. Ricordo soprattutto quanto sia stato difficile per te affrontare alcune esperienze, quanto il passato a volte sembrasse pesare più del futuro e quanto, a gennaio, anche solo il pensiero di ricominciare il tirocinio ti mettesse in difficoltà. So quanta paura avevi e quanto ti sia costato trovare la forza di affrontare nuovamente tutto.",
+    "Ma oggi sei qui. E credo che questa sia la cosa più bella di tutte: nonostante le difficoltà, nonostante i momenti in cui hai dubitato di te stessa, sei riuscita ad arrivare esattamente dove desideravi. Vorrei che oggi riuscissi a guardarti indietro e a renderti conto di quanta strada hai fatto. Di quante volte sei stata più forte delle tue paure, anche quando tu stessa non riuscivi a rendertene conto.",
+    "Sono orgoglioso della persona che sei, della tua determinazione, del tuo modo di affrontare la vita e anche di quella testardaggine che, devo ammetterlo, qualche volta ti porta ad avere ragione su tutto! In questi anni mi hai insegnato tanto, anche senza rendertene conto, e sono felice di averti accanto.",
+    "Vorrei che questo giorno fosse soltanto il primo di tanti altri traguardi da festeggiare. E spero che, in un futuro non troppo lontano, ci sia anche quello di tornare insieme nella nostra casetta, indipendentemente da dove sarà o da quanto sarà grande. Basterà che sia nostra, piena d’amore, di progetti e di quella felicità fatta di piccole cose che sogno di condividere con te.",
+    "Ma oggi non pensare al futuro, agli impegni o a quello che verrà dopo. Oggi pensa soltanto a te, a tutto quello che hai fatto e a quanto meriti di goderti questo momento.",
+    "Se potessi chiederti una sola cosa, sarebbe quella di non dubitare mai più di te stessa come hai fatto in passato. Perché sei capace di raggiungere molto più di quanto immagini e spero che da oggi tu possa affrontare ogni nuova sfida con la consapevolezza di quanto vali.",
+    "Non dimenticare mai che, qualunque cosa ti aspetti, io sarò sempre qui a fare il tifo per te."
+  ],
+  finale:"Congratulazioni, amore mio.",
+  line:"Sono immensamente fiero di te.",
+  sign:"Ti amo."
+};
+
+const $=s=>document.querySelector(s);
+const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;return e};
+const paper=$('#paper'),btn=$('#btn');
+const items=[el('h1','hello',L.to),...L.paras.map(t=>el('p','',t))];
+
+const fin=el('div','finale');
+const again=el('button','link','Ancora coriandoli');
+again.onclick=()=>confetti();
+fin.append(el('h2','big',L.finale),el('p','',L.line),el('p','sign',L.sign),again);
+items.push(fin);
+
+let i=0;
+function next(){
+  if(i>=items.length)return;
+  const e=items[i++];
+  paper.append(e);
+  if(i>2)e.scrollIntoView({behavior:'smooth',block:'start'});
+  if(i===items.length-1)btn.textContent="Un’ultima cosa";
+  if(i===items.length){btn.hidden=true;confetti()}
+}
+btn.onclick=next;
+
+$('#env').onclick=()=>{
+  $('#env').classList.add('open');
+  setTimeout(()=>{$('#s1').classList.remove('on');$('#s2').classList.add('on');next();next()},1000);
+};
+
+function confetti(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const c=$('#fx'),x=c.getContext('2d');
+  c.width=innerWidth;c.height=innerHeight;
+  const cols=['#d9bb7e','#c9a86a','#fffefb','#a3303f','#d9a0a8','#8fa3d1'];
+  const P=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.6,r:3+Math.random()*5,vx:-.8+Math.random()*1.6,vy:1.6+Math.random()*2.6,a:Math.random()*6,s:.04+Math.random()*.08,c:cols[Math.random()*cols.length|0]}));
+  let t=0;
+  (function f(){
+    x.clearRect(0,0,c.width,c.height);
+    P.forEach(p=>{p.x+=p.vx+Math.sin(p.a)*.8;p.y+=p.vy;p.a+=p.s;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/2,p.r,p.r*1.7);x.restore()});
+    if(++t<320)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height);
+  })();
+}
+</script>
+</body>
+</html>
